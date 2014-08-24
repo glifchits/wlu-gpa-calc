@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var exec = require('child_process').exec;
+var exec = require('gulp-exec');
 var sass = require('gulp-sass');
 var clean = require('gulp-clean');
 var karma = require('gulp-karma');
@@ -9,14 +9,10 @@ var connect = require('gulp-connect');
 var htmlReplace = require('gulp-html-replace');
 
 
-var testFiles = './notafile';
-
-
 gulp.task('clean', function() {
-	// git checkout to undo the changes to index.html
-	// due to the `replace` Gulp task
-	exec('git checkout -- index.html');
-	return gulp.src('build').pipe(clean());
+	return gulp.src('build').pipe(clean())
+	// git checkout to undo changes to index.html in `replace` task
+		.pipe(exec('git checkout -- index.html'));
 });
 
 
@@ -30,7 +26,7 @@ gulp.task('css', function() {
 
 
 gulp.task('test', function() {
-	return gulp.src(testFiles)
+	return gulp.src('./notafile')
 		.pipe(karma({
 			configFile: 'karma.conf.js',
 			action: 'run'
@@ -52,7 +48,7 @@ gulp.task('concatCSS', function() {
 		'css/*.css'
 	])
 		.pipe(concat('build.css'))
-		.pipe(gulp.dest('build'))
+		.pipe(gulp.dest('build'));
 });
 
 
