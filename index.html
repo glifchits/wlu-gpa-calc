@@ -16,11 +16,11 @@
           <div class='row'>
             <div class='col-sm-6'>
               <label>GPA so far</label>
-              <input type='number' ng-model='start.gpa'></input>
+              <input class='form-control' type='number' ng-model='start.gpa'></input>
             </div>
             <div class='col-sm-6'>
               <label>Credits so far</label>
-              <input type='number' ng-model='start.credits'></input>
+              <input class='form-control' type='number' ng-model='start.credits'></input>
             </div>
           </div><!-- end row -->
           <div class='row'>
@@ -40,24 +40,27 @@
           <div class='credit row' ng-repeat='credit in credits'>
             <div class='col-sm-4'>
               <label>Grade points</label>
-              <input type='number' ng-model='credit.grade'></input>
+              <input class='form-control' type='number' ng-model='credit.grade'></input>
             </div>
             <div class='col-sm-3'>
               <label>Credits</label>
-              <input type='number' ng-model='credit.credits'></input>
+              <input class='form-control' type='number' ng-model='credit.credits'></input>
             </div>
             <div class='col-sm-4'>
               <label>Course name</label>
-              <input type='text' ng-model='credit.name'></input>
+              <input class='form-control' type='text' ng-model='credit.name'></input>
             </div>
             <div class='col-sm-1'>
-              <button class='btn btn-danger' ng-click='removeCredit($index)'>
+              <label>Remove</label>
+              <button class='form-control btn btn-danger' ng-click='removeCredit($index)'>
                 <i class='glyphicon glyphicon-remove'></i>
               </button>
             </div>
           </div><!-- end row -->
-          <div class='row'>
-            <button class='btn btn-default' ng-click='addCredit()'>Add a credit...</button>
+          <div class='row add-button'>
+            <div class='col-sm-12'>
+              <button class='add-btn btn btn-default' ng-click='addCredit()'>Add a credit...</button>
+            </div>
           </div><!-- end row just for button -->
         </div><!-- end .additional-info -->
       </div>
