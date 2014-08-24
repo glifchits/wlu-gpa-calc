@@ -11,7 +11,11 @@
   "devDependencies": {
     "gulp": "^3.8.7",
     "gulp-connect": "^2.0.6",
+    "gulp-karma": "0.0.4",
     "gulp-sass": "^0.7.3",
-    "gulp-watch": "^0.6.9"
+    "gulp-watch": "^0.6.9",
+    "karma": "^0.12.22",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5"
   }
 }
