@@ -34,10 +34,4 @@ gulp.task('server', function() {
 });
 
 
-gulp.task('default', ['server', 'css'], function() {
-	gulp.src(testFiles)
-		.pipe(karma({
-			configFile: 'karma.conf.js',
-			action: 'watch'
-		}));
-});
+gulp.task('default', ['server', 'css']);
