@@ -2,11 +2,36 @@
   margin-top: 4em;
 }
 
-div.section {
-  padding: 2em;
-  margin: 2em 0;
-  border: 1px solid #ddd;
+// disable all input[number] spinners
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
+
+span.delta-gpa {
+  &.good {
+    color: green;
+  }
+  &.bad {
+    color: red;
+  }
+}
+
+// styles for the calculator
+
+#calculator .section {
+  font-size: 28px;
+  input {
+    width: 100%;
+  }
+  input, span {
+    font-size: 42px;
+    font-weight: bold;
+  }
+}
+
+// styles for the table entering new credits
 
 $pad-btwn-rows: 2em;
 
@@ -22,14 +47,5 @@ div.credit.row {
 div.add-button.row {
   &:not(:only-child) {
     padding-top: $pad-btwn-rows;
-  }
-}
-
-span.delta-gpa {
-  &.good {
-    color: green;
-  }
-  &.bad {
-    color: red;
   }
 }

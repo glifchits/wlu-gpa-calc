@@ -9,52 +9,60 @@
     <!-- endbuild -->
   </head>
   <body>
-    <div class='container'>
+    <div class='container-fluid'>
       <div id='header'>
         <h1>WLU GPA Calculator</h1>
       </div>
-      <div id='calculator' ng-controller='CalculatorController'>
-        <div class='section starting-info'>
+      <div id='calculator' class='panel panel-default' ng-controller='CalculatorController'>
+        <div class='section panel-body starting-info'>
           <div class='row'>
-            <div class='col-sm-6'>
+            <div class='col-sm-3 col-xs-8'>
               <label>GPA so far</label>
-              <input class='form-control' type='number' ng-model='start.gpa'></input>
             </div>
-            <div class='col-sm-6'>
+            <div class='col-sm-3 col-xs-4'>
+              <input class='gpa' type='number' ng-model='start.gpa'></input>
+            </div>
+            <div class='col-sm-3 col-xs-8'>
               <label>Credits so far</label>
-              <input class='form-control' type='number' ng-model='start.credits'></input>
+            </div>
+            <div class='col-sm-3 col-xs-4'>
+              <input class='credits' type='number' ng-model='start.credits'></input>
             </div>
           </div><!-- end row -->
           <div class='row'>
-            <div class='col-sm-6'>
+            <div class='col-sm-3'>
               <label>Your cGPA</label>
+            </div>
+            <div class='col-sm-3'>
               <span ng-bind='cumu.gpa()'></span>
               <span class='delta-gpa' ng-class='{ "good": deltaGPA() > 0, "bad": deltaGPA() < 0 }'
                 ng-bind='deltaGPA()'></span>
             </div>
-            <div class='col-sm-6'>
+            <div class='col-sm-3'>
               <label>Total credits</label>
+            </div>
+            <div class='col-sm-3'>
               <span ng-bind='cumu.credits()'></span>
             </div>
           </div><!-- end row -->
         </div><!-- end .starting-info -->
-        <div class='section additional-info'>
+        <div class='section panel-body additional-info'>
           <div class='credit row' ng-repeat='credit in credits'>
             <div class='col-sm-4'>
               <label>Grade points</label>
-              <input class='form-control' type='number' ng-model='credit.grade'></input>
+              <input class='gpa' type='number' ng-model='credit.grade'></input>
             </div>
             <div class='col-sm-3'>
               <label>Credits</label>
-              <input class='form-control' type='number' ng-model='credit.credits'></input>
+              <input class='credits' type='number' ng-model='credit.credits'></input>
             </div>
             <div class='col-sm-4'>
               <label>Course name</label>
-              <input class='form-control' type='text' ng-model='credit.name'></input>
+              <input class='' type='text' ng-model='credit.name'></input>
             </div>
             <div class='col-sm-1'>
               <label>Remove</label>
-              <button class='form-control btn btn-danger' ng-click='removeCredit($index)'>
+              <button class='btn btn-danger' ng-click='removeCredit($index)'>
                 <i class='glyphicon glyphicon-remove'></i>
               </button>
             </div>
@@ -67,8 +75,8 @@
         </div><!-- end .additional-info -->
       </div>
     </div><!-- end container -->
-    <script src='/vendor/jquery.js'></script>
     <!-- build:js -->
+    <script src='/vendor/jquery.js'></script>
     <script src='/vendor/angular.js'></script>
     <script src='/js/app.js'></script>
     <!-- endbuild -->
