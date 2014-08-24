@@ -37,8 +37,6 @@
         </div><!-- end .starting-info -->
         <div class='section additional-info'>
           <div class='credit row' ng-repeat='credit in credits'>
-            <div class='col-sm-1'>
-            </div>
             <div class='col-sm-4'>
               <label>Grade points</label>
               <input type='number' ng-model='credit.grade'></input>
@@ -50,6 +48,9 @@
             <div class='col-sm-4'>
               <label>Course name</label>
               <input type='text' ng-model='credit.name'></input>
+            </div>
+            <div class='col-sm-1'>
+              <button ng-click='removeCredit($index)'>X</button>
             </div>
           </div><!-- end row -->
           <div class='row'>

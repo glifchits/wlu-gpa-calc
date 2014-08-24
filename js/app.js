@@ -43,4 +43,8 @@ gpaCalc.controller('CalculatorController', function($scope) {
 			name: ''
 		});
 	};
+
+	$scope.removeCredit = function(idx) {
+		credits.splice(idx, 1);
+	};
 });
