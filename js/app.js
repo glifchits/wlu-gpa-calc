@@ -34,7 +34,7 @@ gpaCalc.controller('CalculatorController', function($scope) {
 
 	$scope.deltaGPA = function() {
 		var result = cumu.gpa() - start.gpa;
-		return result >= 0 ? result : 0;
+		return cumu.gpa() > 0 ? result : 0;
 	};
 
 	$scope.addCredit = function() {
