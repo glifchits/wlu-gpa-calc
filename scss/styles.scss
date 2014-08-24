@@ -8,6 +8,23 @@ div.section {
   border: 1px solid #ddd;
 }
 
+$pad-btwn-rows: 2em;
+
+div.credit.row {
+  &:first-child {
+    padding-bottom: $pad-btwn-rows;
+  }
+  &:not(:first-child) {
+    padding: $pad-btwn-rows 0;
+  }
+  border-bottom: 1px solid #ddd;
+}
+div.add-button.row {
+  &:not(:only-child) {
+    padding-top: $pad-btwn-rows;
+  }
+}
+
 span.delta-gpa {
   &.good {
     color: green;
