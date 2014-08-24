@@ -5,10 +5,7 @@ var watch = require('gulp-watch');
 var connect = require('gulp-connect');
 
 
-var testFiles = [
-	'js/app.js',
-	'test/spec/**/*.js'
-];
+var testFiles = './notafile';
 
 
 gulp.task('css', function() {
@@ -37,14 +34,10 @@ gulp.task('server', function() {
 });
 
 
-gulp.task('default', ['server', 'css']);
-
-/*
- , function() {
+gulp.task('default', ['server', 'css'], function() {
 	gulp.src(testFiles)
 		.pipe(karma({
 			configFile: 'karma.conf.js',
 			action: 'watch'
 		}));
 });
-*/
