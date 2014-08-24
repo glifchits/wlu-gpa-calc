@@ -3,11 +3,7 @@ var gpaCalc = angular.module('gpaCalc', []);
 
 gpaCalc.controller('CalculatorController', function($scope) {
 	// scope object for each additionally entered credit
-	$scope.credits = credits = [{
-		grade: 0,
-		credits: 0,
-		name: ''
-	}];
+	$scope.credits = credits = [];
 
 	// scope object for the starting information
 	$scope.start = start = {};
@@ -18,7 +14,13 @@ gpaCalc.controller('CalculatorController', function($scope) {
 	$scope.cumu = cumu = {};
 	cumu.gpa = function() {
 		var result;
-		result = start.gpa;
+		var newGradePoints = 0, numCredits = start.credits;
+		credits.forEach(function(credit) {
+			newGradePoints += credit.grade * credit.credits;
+			numCredits += credit.credits;
+		});
+		var startGradePoints = start.gpa * start.credits;
+		result = (startGradePoints + newGradePoints) / numCredits;
 		return result || 0;
 	};
 	cumu.credits = function() {
@@ -26,11 +28,19 @@ gpaCalc.controller('CalculatorController', function($scope) {
 		credits.forEach(function(credit) {
 			newCredits += credit.credits;
 		});
-		result = parseFloat(start.credits) + newCredits;
+		result = start.credits + newCredits;
 		return result || 0;
 	};
 
 	$scope.deltaGPA = function() {
 		return cumu.gpa() - start.gpa;
+	};
+
+	$scope.addCredit = function() {
+		credits.push({
+			grade: 0,
+			credits: 0.5,
+			name: ''
+		});
 	};
 });
