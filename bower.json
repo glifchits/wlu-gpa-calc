@@ -1,0 +1,20 @@
+{
+  "name": "wlu-gpa-calc",
+  "version": "0.0.0",
+  "authors": [
+    "George Lifchits <george.lifchits@gmail.com>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.23"
+  }
+}

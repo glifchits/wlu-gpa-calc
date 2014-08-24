@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang='en' ng-app='gpaCalc'>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
+    <title>WLU GPA Calculator</title>
+    <link rel='stylesheet' type='text/css' href='/vendor/bootstrap.css'></link>
+    <link rel='stylesheet' type='text/css' href='/css/styles.css'></link>
+  </head>
+  <body>
+    <div class='container'>
+      <div id='header'>
+        <h1>WLU GPA Calculator</h1>
+      </div>
+      <div id='calculator' ng-controller='Calculator'>
+        <div class='section starting-info'>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <label>GPA so far</label>
+              <input></input>
+            </div>
+            <div class='col-sm-6'>
+              <label>Credits so far</label>
+              <input></input>
+            </div>
+          </div><!-- end row -->
+          <div class='row'>
+            <div class='col-sm-12'>
+              <label>Your cGPA</label>
+              <input></input>
+              <span class='gpa-change'>+ 0.4</span>
+            </div>
+          </div><!-- end row -->
+        </div><!-- end .starting-info -->
+        <div class='section additional-info'>
+          <div class='row'>
+            <div class='col-sm-1'>
+              <button>Add...</button>
+            </div>
+            <div class='col-sm-4'>
+              <label>Grade points</label>
+              <input></input>
+            </div>
+            <div class='col-sm-3'>
+              <label>Credits</label>
+              <input></input>
+            </div>
+            <div class='col-sm-4'>
+              <label>Course name</label>
+              <input></input>
+            </div>
+          </div><!-- end row -->
+        </div><!-- end .additional-info -->
+      </div>
+    </div><!-- end container -->
+    <script src='/vendor/jquery.js'></script>
+    <script src='/vendor/angular.js'></script>
+
+    <script src='/js/app.js'></script>
+  </body>
+</html>

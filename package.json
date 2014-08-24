@@ -1,0 +1,17 @@
+{
+  "name": "wlu-gpa-calc",
+  "version": "0.0.0",
+  "description": "WLU GPA calculator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "George Lifchits <george.lifchits@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.8.7",
+    "gulp-connect": "^2.0.6",
+    "gulp-sass": "^0.7.3",
+    "gulp-watch": "^0.6.9"
+  }
+}
