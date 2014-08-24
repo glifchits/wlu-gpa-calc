@@ -51,11 +51,13 @@
               <input type='text' ng-model='credit.name'></input>
             </div>
             <div class='col-sm-1'>
-              <button ng-click='removeCredit($index)'>X</button>
+              <button class='btn btn-danger' ng-click='removeCredit($index)'>
+                <i class='glyphicon glyphicon-remove'></i>
+              </button>
             </div>
           </div><!-- end row -->
           <div class='row'>
-            <button ng-click='addCredit()'>Add a credit...</button>
+            <button class='btn btn-default' ng-click='addCredit()'>Add a credit...</button>
           </div><!-- end row just for button -->
         </div><!-- end .additional-info -->
       </div>
