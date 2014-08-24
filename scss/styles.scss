@@ -7,3 +7,12 @@ div.section {
   margin: 2em 0;
   border: 1px solid #ddd;
 }
+
+span.delta-gpa {
+  &.good {
+    color: green;
+  }
+  &.bad {
+    color: red;
+  }
+}

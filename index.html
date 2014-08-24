@@ -27,7 +27,8 @@
             <div class='col-sm-6'>
               <label>Your cGPA</label>
               <span ng-bind='cumu.gpa()'></span>
-              <span class='gpa-change' ng-bind='deltaGPA()'></span>
+              <span class='delta-gpa' ng-class='{ "good": deltaGPA() > 0, "bad": deltaGPA() < 0 }'
+                ng-bind='deltaGPA()'></span>
             </div>
             <div class='col-sm-6'>
               <label>Total credits</label>
