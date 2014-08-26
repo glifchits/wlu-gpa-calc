@@ -68,6 +68,7 @@ gulp.task('concatJS', function() {
 		'vendor/angular.js',
 		'vendor/jquery.js',
 		'vendor/bootstrap.js',
+		'vendor/*.js',
 		'js/app.js'
 	])
 		.pipe(concat('build.js'))
