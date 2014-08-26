@@ -1,24 +1,27 @@
-var gpaCalc = angular.module('gpaCalc', []);
+var gpaCalc = angular.module('gpaCalc', ['ngRoute']);
 
 
-gpaCalc.controller('MainController', function($scope) {
+gpaCalc.config(function($routeProvider, $locationProvider) {
 	var PAGES = {
 		first: 'templates/first.html',
 		second: 'templates/second.html',
 		credits: 'templates/credits.html'
 	};
 
-	$scope.currentTemplate = PAGES.first;
-
-	$scope.goTo = function(page) {
-		if (page in PAGES) {
-			var newTemplate = PAGES[page];
-			$scope.currentTemplate = newTemplate;
-		} else {
-			console.debug('got unknown page', page);
-			$scope.currentTemplate = FIRST;
-		}
-	};
+	$locationProvider.html5Mode(true);
+	$routeProvider
+		.when('/', {
+			templateUrl: PAGES.first
+		})
+		.when('/2', {
+			templateUrl: PAGES.second
+		})
+		.when('/credits', {
+			templateUrl: PAGES.credits
+		})
+		.otherwise({
+			redirectTo: '/'
+		});
 });
 
 
