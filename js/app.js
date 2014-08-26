@@ -20,7 +20,7 @@ gpaCalc.config(function($routeProvider, $locationProvider) {
 			templateUrl: PAGES.credits
 		})
 		.otherwise({
-			redirectTo: '/'
+			redirectTo: '/credits'
 		});
 });
 
@@ -31,8 +31,8 @@ gpaCalc.controller('CalculatorController', function($scope) {
 
 	// scope object for the starting information
 	$scope.start = start = {};
-	start.gpa = 0;
-	start.credits = 0;
+	start.gpa = 9.26;//0;
+	start.credits = 19.5;//0;
 
 	// object holding computable values for new cumulative GPA
 	$scope.cumu = cumu = {};
@@ -71,5 +71,19 @@ gpaCalc.controller('CalculatorController', function($scope) {
 
 	$scope.removeCredit = function(idx) {
 		credits.splice(idx, 1);
+	};
+});
+
+
+gpaCalc.filter('change', function() {
+	return function(input) {
+		input = input.toFixed(3);
+		if (input > 0) {
+			return "+" + input;
+		} else if (input < 0) {
+			return "(" + -input + ")";
+		} else {
+			return "0";
+		}
 	};
 });
