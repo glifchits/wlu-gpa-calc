@@ -119,7 +119,15 @@ gpaCalc.directive('myNumber', function() {
 		require: 'ngModel',
 		link: function(scope, element, attr, ngModel) {
 			ngModel.$parsers.push(function(value) {
-				return parseFloat(value);
+				var match = value.match(/^(-?)(\d*)(\.?)(\d*)$/);
+				if (match === null) { return undefined; }
+				else {
+					var negative = match[1] !== "";
+					var whole = match[2] === "" ? 0 : parseInt(match[2]);
+					var fraction = match[4] === "" ? 0 : parseFloat('0.'+match[4]);
+					var number = whole + fraction;
+					return negative ? -number : number;
+				}
 			});
 		},
 		replace: true,
