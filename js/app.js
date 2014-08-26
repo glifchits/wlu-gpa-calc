@@ -29,16 +29,20 @@ gpaCalc.controller('CalculatorController', function($scope) {
 	// scope object for each additionally entered credit
 	$scope.credits = credits = [];
 
-	credits.push({
-		grade: '9',
-		credits: '0.5',
-		name: "marketing"
-	});
-
 	// scope object for the starting information
 	$scope.start = start = {};
 	start.gpa = 9.26;//0;
 	start.credits = 19.5;//0;
+
+	var gradeIsValid = function(credit) {
+		if (credit === undefined || credit === null) { return false; }
+		if (credit.grade === undefined || credit.grade === null) { return false; }
+		if (credit.credits === undefined || credit.credits === null) { return false; }
+		var gradeInRange = credit.grade >= 0 && credit.grade <= 12;
+		var creditsAreMultipleOfHalf = ((credit.credits * 2) % 1 === 0.0);
+		var creditsInRange = credit.credits > 0 && credit.credits <= 2;
+		return gradeInRange && creditsAreMultipleOfHalf && creditsInRange;
+	};
 
 	// object holding computable values for new cumulative GPA
 	$scope.cumu = cumu = {};
@@ -46,8 +50,10 @@ gpaCalc.controller('CalculatorController', function($scope) {
 		var result;
 		var newGradePoints = 0, numCredits = start.credits;
 		credits.forEach(function(credit) {
-			newGradePoints += credit.grade * credit.credits;
-			numCredits += credit.credits;
+			if (gradeIsValid(credit)) {
+				newGradePoints += credit.grade * credit.credits;
+				numCredits += credit.credits;
+			}
 		});
 		var startGradePoints = start.gpa * start.credits;
 		result = (startGradePoints + newGradePoints) / numCredits;
@@ -73,18 +79,10 @@ gpaCalc.controller('CalculatorController', function($scope) {
 			name: ''
 		});
 	};
-
-	var isValid = function(credit) {
-		var value = credit.grade !== undefined && credit.grade !== null;
-		var inRange = credit.grade >= 0 && credit.grade <= 12;
-		var creditsValid = ((credit.credits * 2) % 1 === 0.0);
-		var creditsInRange = credit.credits > 0 && credit.credits <= 2;
-		return value && inRange && creditsValid && creditsInRange;
-	};
-
+	
 	$scope.addIsDisabled = function() {
 		var lastCredit = credits[credits.length - 1];
-		var enabled = (lastCredit === undefined) || isValid(lastCredit);
+		var enabled = (lastCredit === undefined) || gradeIsValid(lastCredit);
 		return !enabled;
 	};
 
