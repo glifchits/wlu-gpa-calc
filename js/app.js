@@ -29,6 +29,12 @@ gpaCalc.controller('CalculatorController', function($scope) {
 	// scope object for each additionally entered credit
 	$scope.credits = credits = [];
 
+	credits.push({
+		grade: '9',
+		credits: '0.5',
+		name: "marketing"
+	});
+
 	// scope object for the starting information
 	$scope.start = start = {};
 	start.gpa = 9.26;//0;
@@ -92,7 +98,22 @@ gpaCalc.controller('CalculatorController', function($scope) {
 	};
 	$scope.enableHover = function(idx) {
 		hoverIndex = idx;
-	}
+	};
+});
+
+
+gpaCalc.directive('myNumber', function() {
+	return {
+		restrict: 'A',
+		require: 'ngModel',
+		link: function(scope, element, attr, ngModel) {
+			ngModel.$parsers.push(function(value) {
+				return parseFloat(value);
+			});
+		},
+		replace: true,
+		template: "<input class='my-number'></input>"
+	};
 });
 
 

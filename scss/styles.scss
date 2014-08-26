@@ -1,10 +1,3 @@
-// disable all input[number] spinners
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
 .delta-gpa {
   &.good {
     color: green;
@@ -33,7 +26,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 10px;
     font-weight: bold;
   }
-  input[type=number] {
+  input.my-number {
     font-weight: bold;
   }
   button {
@@ -44,7 +37,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 #credits {
   input {
-    &[type=number] {
+    &.my-number {
       width: 2em;
     }
   }
@@ -68,6 +61,6 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
   .add-button button {
-    margin-top: 1em;
+    margin: 1em 0;
   }
 }
