@@ -79,7 +79,7 @@ gpaCalc.controller('CalculatorController', function($scope) {
 			name: ''
 		});
 	};
-	
+
 	$scope.addIsDisabled = function() {
 		var lastCredit = credits[credits.length - 1];
 		var enabled = (lastCredit === undefined) || gradeIsValid(lastCredit);
@@ -99,6 +99,7 @@ gpaCalc.controller('CalculatorController', function($scope) {
 	};
 });
 
+
 gpaCalc.directive('credit', function() {
 	return {
 		restrict: 'A',
@@ -108,7 +109,7 @@ gpaCalc.directive('credit', function() {
 				newCredit.find('input.gpa').focus();
 			}, true);
 		}
-	}
+	};
 });
 
 
