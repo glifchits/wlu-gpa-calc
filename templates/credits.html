@@ -22,8 +22,13 @@
     <div class='credit row' ng-repeat='credit in credits'
       ng-mouseenter='enableHover($index)'
       ng-mouseleave='enableHover(-1)'>
-      <div class='group col-md-12'>
+      <div class='group' ng-class='hover($index) ? "col-md-10" : "col-md-12"'>
         <input class='coursename' type='text' ng-model='credit.name' placeholder="Course name"></input>
+      </div>
+      <div ng-show='hover($index)' class='group col-md-2'>
+        <button class='remove-button btn btn-danger' ng-click='removeCredit($index)'>
+          <i class='glyphicon glyphicon-remove'></i>
+        </button>
       </div>
       <div class='group col-md-6'>
         <span class='my-label'>Grade points</span>
@@ -33,7 +38,6 @@
         <span class='my-label'>Credits</span>
         <input class='credits' type='number' ng-model='credit.credits'></input>
       </div>
-      <button ng-show='hover($index)' class='remove-button btn btn-danger' ng-click='removeCredit($index)'>Remove</button>
     </div><!-- end row -->
     <div class='row add-button'>
       <div class='col-md-12'>
