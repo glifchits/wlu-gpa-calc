@@ -1,8 +1,3 @@
-#main {
-  max-width: 800px;
-  margin: 2em auto;
-}
-
 // disable all input[number] spinners
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -19,13 +14,35 @@ input[type=number]::-webkit-outer-spin-button {
   }
 }
 
-#credits {
+#main {
+  h1 {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 1em 0;
+  }
+  max-width: 800px;
+  margin: 0 auto;
   font-size: 40px;
-  button {
-    font-size: 30px;
+  a.my-button {
+    display: block;
+    background: #ddd;
+    margin: 15px 0;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
     font-weight: bold;
   }
+  input[type=number] {
+    font-weight: bold;
+  }
+  button {
+    font-size: 34px;
+    font-weight: bold;
+  }
+}
 
+#credits {
   input {
     &[type=number] {
       width: 2em;
@@ -46,5 +63,9 @@ input[type=number]::-webkit-outer-spin-button {
     div.group {
       padding-bottom: 0.2em;
     }
+  }
+
+  .add-button button {
+    margin-top: 1em;
   }
 }
