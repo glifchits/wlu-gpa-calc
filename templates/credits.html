@@ -6,7 +6,8 @@
       <div class='col-md-12'>
         <span class='my-label'>Your cumulative GPA</span>
         <span class='number gpa'>{{ cumu.gpa() | number: 3 }}</span>
-        <span class='delta-gpa' ng-show="deltaGPA() !== 0" ng-class='deltaGPA() >= 0 ? "good" : "bad"'>{{ deltaGPA() | change }}</span>
+        <span class='delta-gpa' ng-show="start.gpa !== 0 && deltaGPA() !== 0"
+          ng-class='deltaGPA() >= 0 ? "good" : "bad"'>{{ deltaGPA() | change }}</span>
       </div>
     </div>
 

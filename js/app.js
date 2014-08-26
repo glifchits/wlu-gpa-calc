@@ -31,8 +31,8 @@ gpaCalc.controller('CalculatorController', function($scope) {
 
 	// scope object for the starting information
 	$scope.start = start = {};
-	start.gpa = 9.26;//0;
-	start.credits = 19.5;//0;
+	start.gpa = 0;
+	start.credits = 0;
 
 	var gradeIsValid = function(credit) {
 		if (credit === undefined || credit === null) { return false; }
