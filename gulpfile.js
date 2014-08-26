@@ -32,7 +32,9 @@ gulp.task('js', function() {
 
 gulp.task('css', function() {
 	watch({ glob: 'scss/*.scss' }, function(files) {
-		return files.pipe(sass())
+		return files
+			.pipe(sass())
+			.pipe(concat('styles.css'))
 			.pipe(gulp.dest('css'))
 			.pipe(connect.reload());
 	});
@@ -88,7 +90,7 @@ gulp.task('build', ['clean', 'css', 'concatCSS', 'concatJS', 'replace'], functio
 });
 
 
-gulp.task('default', ['css', 'html', 'js'], function() {
+gulp.task('default', ['css'], function() {
 	connect.server({
 		livereload: true
 	});
