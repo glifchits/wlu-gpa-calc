@@ -1,5 +1,6 @@
-#header {
-  margin-top: 4em;
+#main {
+  max-width: 800px;
+  margin: 2em auto;
 }
 
 // disable all input[number] spinners
@@ -9,7 +10,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-span.delta-gpa {
+.delta-gpa {
   &.good {
     color: green;
   }
@@ -18,37 +19,32 @@ span.delta-gpa {
   }
 }
 
-// styles for the calculator
-
-#calculator .section {
-  font-size: 28px;
-  input {
-    width: 100%;
-  }
-  input, span.number {
-    font-size: 42px;
+#credits {
+  font-size: 40px;
+  button {
+    font-size: 30px;
     font-weight: bold;
   }
-  span.delta-gpa {
-    font-size: 24px;
-  }
-}
 
-// styles for the table entering new credits
-
-$pad-btwn-rows: 0em;
-
-div.credit.row {
-  &:first-child {
-    padding-bottom: $pad-btwn-rows;
+  input {
+    &[type=number] {
+      width: 2em;
+    }
   }
-  &:not(:first-child) {
-    padding: $pad-btwn-rows 0;
+  input.coursename, button {
+    width: 100%;
   }
-  border-bottom: 1px solid #ddd;
-}
-div.add-button.row {
-  &:not(:only-child) {
-    padding-top: $pad-btwn-rows;
+
+  span.my-label {
+    font-weight: bold;
+  }
+
+  div.credit {
+    padding: 15px 0;
+    &:nth-child(odd) { background-color: #ccc; }
+    &:nth-child(even) { background-color: #eee; }
+    div.group {
+      padding-bottom: 0.2em;
+    }
   }
 }

@@ -63,10 +63,23 @@ gpaCalc.controller('CalculatorController', function($scope) {
 
 	$scope.addCredit = function() {
 		credits.push({
-			grade: 0,
 			credits: 0.5,
 			name: ''
 		});
+	};
+
+	var isValid = function(credit) {
+		var value = credit.grade !== undefined && credit.grade !== null;
+		var inRange = credit.grade >= 0 && credit.grade <= 12;
+		var creditsValid = ((credit.credits * 2) % 1 === 0.0);
+		var creditsInRange = credit.credits > 0 && credit.credits <= 2;
+		return value && inRange && creditsValid && creditsInRange;
+	};
+
+	$scope.addIsDisabled = function() {
+		var lastCredit = credits[credits.length - 1];
+		var enabled = (lastCredit === undefined) || isValid(lastCredit);
+		return !enabled;
 	};
 
 	$scope.removeCredit = function(idx) {
