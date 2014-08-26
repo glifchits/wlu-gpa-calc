@@ -1,3 +1,5 @@
+<h1>Your GPA</h1>
+
 <div id='credits'>
   <div class='section start-info'>
     <div class='cgpa row'>
@@ -17,7 +19,9 @@
   </div>
 
   <div class='section additional-info'>
-    <div class='credit row' ng-repeat='credit in credits'>
+    <div class='credit row' ng-repeat='credit in credits'
+      ng-mouseenter='enableHover($index)'
+      ng-mouseleave='enableHover(-1)'>
       <div class='group col-md-12'>
         <input class='coursename' type='text' ng-model='credit.name' placeholder="Course name"></input>
       </div>
@@ -29,9 +33,7 @@
         <span class='my-label'>Credits</span>
         <input class='credits' type='number' ng-model='credit.credits'></input>
       </div>
-      <div class='group col-md-12'>
-        <button class='btn btn-danger' ng-click='removeCredit($index)'>Remove</button>
-      </div>
+      <button ng-show='hover($index)' class='remove-button btn btn-danger' ng-click='removeCredit($index)'>Remove</button>
     </div><!-- end row -->
     <div class='row add-button'>
       <div class='col-md-12'>

@@ -85,6 +85,14 @@ gpaCalc.controller('CalculatorController', function($scope) {
 	$scope.removeCredit = function(idx) {
 		credits.splice(idx, 1);
 	};
+
+	var hoverIndex = -1;
+	$scope.hover = function(idx) {
+		return idx === hoverIndex;
+	};
+	$scope.enableHover = function(idx) {
+		hoverIndex = idx;
+	}
 });
 
 
