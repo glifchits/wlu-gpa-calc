@@ -13,70 +13,9 @@
       <div id='header'>
         <h1>WLU GPA Calculator</h1>
       </div>
-      <div id='calculator' class='panel panel-default' ng-controller='CalculatorController'>
-        <div class='section panel-body starting-info'>
-          <div class='row'>
-            <div class='col-sm-3 col-xs-8'>
-              <label>GPA so far</label>
-            </div>
-            <div class='col-sm-3 col-xs-4'>
-              <input class='gpa' type='number' ng-model='start.gpa'></input>
-            </div>
-            <div class='col-sm-3 col-xs-8'>
-              <label>Credits so far</label>
-            </div>
-            <div class='col-sm-3 col-xs-4'>
-              <input class='credits' type='number' ng-model='start.credits'></input>
-            </div>
-          </div><!-- end row -->
-          <div class='row'>
-            <div class='col-sm-3 col-xs-8'>
-              <label>Your cGPA</label>
-            </div>
-            <div class='col-sm-3 col-xs-4'>
-              <span class='number'>{{ cumu.gpa() | number: 2 }}</span>
-              <span class='delta-gpa' ng-show='deltaGPA() !== 0' ng-class='{ "good": deltaGPA() > 0, "bad": deltaGPA() < 0 }'>
-                {{ deltaGPA() | number: 2 }}
-              </span>
-            </div>
-            <div class='col-sm-3 col-xs-8'>
-              <label>Total credits</label>
-            </div>
-            <div class='col-sm-3 col-xs-4'>
-              <span class='number'>{{ cumu.credits() }}</span>
-            </div>
-          </div><!-- end row -->
-        </div><!-- end .starting-info -->
-        <div class='section panel-body additional-info'>
-          <div class='credit row' ng-repeat='credit in credits'>
-            <div class='col-md-3 col-xs-8'>
-              <label>Grade points</label>
-            </div>
-            <div class='col-md-1 col-xs-4'>
-              <input class='gpa' type='number' ng-model='credit.grade'></input>
-            </div>
-            <div class='col-md-2 col-xs-8'>
-              <label>Credits</label>
-            </div>
-            <div class='col-md-2 col-xs-4'>
-              <input class='credits' type='number' ng-model='credit.credits'></input>
-            </div>
-            <div class='col-md-3 col-xs-12'>
-              <input class='coursename' type='text' ng-model='credit.name' placeholder="Course name"></input>
-            </div>
-            <div class='col-md-1 col-xs-12'>
-              <button class='btn btn-danger' ng-click='removeCredit($index)'>
-                <i class='glyphicon glyphicon-remove'></i>
-              </button>
-            </div>
-          </div><!-- end row -->
-          <div class='row add-button'>
-            <div class='col-md-12'>
-              <button class='add-btn btn btn-default' ng-click='addCredit()'>Add a credit...</button>
-            </div>
-          </div><!-- end row just for button -->
-        </div><!-- end .additional-info -->
-      </div>
+      <div ng-controller='MainController'>
+        <div ng-include='currentTemplate'></div>
+      </div><!-- end calculator -->
     </div><!-- end container -->
     <!-- build:js -->
     <script src='/vendor/jquery.js'></script>

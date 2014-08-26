@@ -1,6 +1,27 @@
 var gpaCalc = angular.module('gpaCalc', []);
 
 
+gpaCalc.controller('MainController', function($scope) {
+	var PAGES = {
+		first: 'templates/first.html',
+		second: 'templates/second.html',
+		credits: 'templates/credits.html'
+	};
+
+	$scope.currentTemplate = PAGES.first;
+
+	$scope.goTo = function(page) {
+		if (page in PAGES) {
+			var newTemplate = PAGES[page];
+			$scope.currentTemplate = newTemplate;
+		} else {
+			console.debug('got unknown page', page);
+			$scope.currentTemplate = FIRST;
+		}
+	};
+});
+
+
 gpaCalc.controller('CalculatorController', function($scope) {
 	// scope object for each additionally entered credit
 	$scope.credits = credits = [];

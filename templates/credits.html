@@ -1,0 +1,64 @@
+<h1>More credits</h1>
+
+<div ng-controller='CalculatorController'>
+  <div class='cgpa row'>
+    <div class='col-md-12'>
+      <span class='my-label'>Your cumulative GPA</span>
+      <span class='number gpa'>9.26</span>
+    </div>
+  </div>
+
+  <div class='total-credits row'>
+    <div class='col-md-12'>
+      <span class='my-label'>Total number of credits</span>
+      <span class='number credits'>19.5</span>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-sm-3 col-xs-8'>
+      <label>Your cGPA</label>
+    </div>
+    <div class='col-sm-3 col-xs-4'>
+      <span class='number'>{{ cumu.gpa() | number: 2 }}</span>
+      <span class='delta-gpa' ng-show='deltaGPA() !== 0' ng-class='{ "good": deltaGPA() > 0, "bad": deltaGPA() < 0 }'>
+        {{ deltaGPA() | number: 2 }}
+      </span>
+    </div>
+    <div class='col-sm-3 col-xs-8'>
+      <label>Total credits</label>
+    </div>
+    <div class='col-sm-3 col-xs-4'>
+      <span class='number'>{{ cumu.credits() }}</span>
+    </div>
+  </div><!-- end row -->
+</div><!-- end .starting-info -->
+<div class='section panel-body additional-info'>
+  <div class='credit row' ng-repeat='credit in credits'>
+    <div class='col-md-3 col-xs-8'>
+      <label>Grade points</label>
+    </div>
+    <div class='col-md-1 col-xs-4'>
+      <input class='gpa' type='number' ng-model='credit.grade'></input>
+    </div>
+    <div class='col-md-2 col-xs-8'>
+      <label>Credits</label>
+    </div>
+    <div class='col-md-2 col-xs-4'>
+      <input class='credits' type='number' ng-model='credit.credits'></input>
+    </div>
+    <div class='col-md-3 col-xs-12'>
+      <input class='coursename' type='text' ng-model='credit.name' placeholder="Course name"></input>
+    </div>
+    <div class='col-md-1 col-xs-12'>
+      <button class='btn btn-danger' ng-click='removeCredit($index)'>
+        <i class='glyphicon glyphicon-remove'></i>
+      </button>
+    </div>
+  </div><!-- end row -->
+  <div class='row add-button'>
+    <div class='col-md-12'>
+      <button class='add-btn btn btn-default' ng-click='addCredit()'>Add a credit...</button>
+    </div>
+  </div><!-- end row just for button -->
+</div><!-- end calculator controller -->

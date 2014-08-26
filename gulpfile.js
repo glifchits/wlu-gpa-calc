@@ -16,6 +16,13 @@ gulp.task('clean', function() {
 });
 
 
+gulp.task('html', function() {
+	watch({ glob: './**/*.html' }, function(files) {
+		return connect.reload();
+	});
+});
+
+
 gulp.task('css', function() {
 	watch({ glob: 'scss/*.scss' }, function(files) {
 		return files.pipe(sass())
@@ -34,11 +41,6 @@ gulp.task('test', function() {
 		.on('error', function(err) {
 			throw err;
 		});
-});
-
-
-gulp.task('server', function() {
-	return connect.server({ livereload: true });
 });
 
 
@@ -79,4 +81,8 @@ gulp.task('build', ['clean', 'css', 'concatCSS', 'concatJS', 'replace'], functio
 });
 
 
-gulp.task('default', ['server', 'css']);
+gulp.task('default', ['css', 'html'], function() {
+	connect.server({
+		livereload: true
+	});
+});
