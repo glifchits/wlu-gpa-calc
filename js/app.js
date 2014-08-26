@@ -99,6 +99,18 @@ gpaCalc.controller('CalculatorController', function($scope) {
 	};
 });
 
+gpaCalc.directive('credit', function() {
+	return {
+		restrict: 'A',
+		link: function(scope, elem, attrs) {
+			scope.$watch(attrs.credit, function() {
+				var newCredit = elem;
+				newCredit.find('input.gpa').focus();
+			}, true);
+		}
+	}
+});
+
 
 gpaCalc.directive('myNumber', function() {
 	return {
